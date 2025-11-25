@@ -3,14 +3,14 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'node:url';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenAI as GoogleGenerativeAI} from '@google/genai';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash-latest' });
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
 
 app.use(cors());
 app.use(express.json());
